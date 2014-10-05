@@ -1,0 +1,117 @@
+@import "ht5bp";
+@import "normalize";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:900);
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+.clearFix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+// color values
+
+$colorBrand: (
+	regular: #cc0000
+);
+
+$gray: #333333; // generic
+$grayD: darken($gray, 10%); // dark
+$grayL: lighten($gray, 35%); // light
+$grayEl: lighten($gray, 70%); // extra light
+
+// generic values
+$ani: 0.25s;
+$gap: 14px;
+$padB: 5em;
+$padS: 2em;
+
+$moduleWidth: 620px;
+$textureThickness: 50px;
+
+@mixin pseudo{
+	content: "";
+	display: block;
+	position: absolute;
+}
+
+/*{
+	outline: 1px solid red !important;
+}*/
+
+
+body{
+	overflow-x: hidden;
+	width: 100%;
+}
+
+#colorWheel{
+	// background-color: gray;
+	height: $moduleWidth;
+	position: relative;
+	width: $moduleWidth;
+}
+
+#productModule{
+	$productWidth: $moduleWidth - ($textureThickness * 2) - ($gap * 2);
+	background-color: white;
+	border-radius: 50%;
+	box-shadow: 0 0 20px 0 rgba(black, 0.25);
+	height: $productWidth;
+	left: $textureThickness + $gap;
+	position: absolute;
+	top: $textureThickness + $gap;
+	width: $productWidth;
+
+	#ring{
+		$ringWidth: $productWidth - ($gap * 2);
+		// background-color: map-get($colorBrand, regular);
+		border: 1px solid map-get($colorBrand, regular);
+		border-radius: 50%;
+		height: $ringWidth;
+		left: $gap;
+		position: absolute;
+		width: $ringWidth;
+		top: $gap;
+
+		#arrow{
+			$arrowWidth: 70px;
+			background-color: white;
+			border: 1px solid map-get($colorBrand, regular);
+			border-radius: 50%;
+			height: $arrowWidth;
+			left: 50%;
+			position: absolute;
+			width: $arrowWidth;
+			top: 0;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+#canvas{
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.segment{
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
